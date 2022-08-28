@@ -1,0 +1,43 @@
+\providecommand{\main}{../../main}
+\documentclass[../../main/main.tex]{subfiles}
+
+
+\begin{document}
+
+    \chapter{Abstract}
+    
+    \label{sec:Abstract}
+    
+    High-Luminosity Large Hadron Collider (HL-LHC) aprirà una finestra senza precedenti per poter osservare la struttura dell'universo, fornendo misure a elevata precisione riguardanti il modello standard, con una particolare attenzione su interazione elettrodebole, caratteristiche del bosone di Higgs e possibili teorie oltre lo stesso modello (Beyond Standard Model, BSM). I nuovi requisiti in termini di rate e latenza vanno ben oltre le attuali caratteristiche dell' elettronica di front-end e back-end, portando così all' intera sostituzione delle componenti principali di CMS tra le quali il sistema di trigger.  
+
+    HL-LHC sarà operativo dopo il Long Shutdown (LS3) e sarà progettato per fornire una maggiore luminosità aumentando di conseguenza anche il cosiddetto pileup di interazioni. Durante LS3 anche lo stesso detector CMS subirà dei sostanziali upgrade per essere pronto alla cosiddetta fase 2 (Phase-II) del programma di fisica di LHC, programmato per il 2029.  
+    
+    Questa tesi ha lo scopo di contribuire allo sviluppo del nuovo Level-1 (L1) trigger per l' esperimento CMS, in particolare sul nuovo Global Trigger (GT). L1-trigger compie la prima selezione dei dati raccolti, riducendo sostanzialmente la quantità di dati da immagazzinare, tale selezione avviene in funzione della fisica che si vuole studiare. L' hardware di questo sottosistema consiste in molteplici schede elettroniche programmabili nelle varie regioni di CMS: locali, regionali e globali. Il GT è responsabile per la selezione e invio degli eventi, i quali saranno poi processati dal successivo livello di trigger, ovvero High Level Trigger (HLT).  
+    
+    L' attuale GT è basato su parametri fisici calcolati a partire da particelle candidate, ricostruite dei sottosistemi a monte, e da parametri globali. Tali algoritmi variano da semplici soglie sui momenti o energie trasverse sui singoli oggetti a complesse correlazioni tra le varie particelle candidate.  
+    
+    Il nuovo GT consiste in molteplici processori, ognuno dei quali riceve il set completo di trigger-objects, ma questi processori calcolano differenti set di algoritmi, ottenendo il cosiddetto trigger menu. La nuova iterazione si differenzia dalla precedente grazie all' introduzione avanzati algoritmi di identificazione, come ad esempio machine learning e tecniche di analisi multivariata, ottenendo così delle classificazioni con maggiore precisione.
+    
+
+    The High-Luminosity Large Hadron Collider (HL-LHC) will open an unprecedented window on the weak-scale nature of the universe, providing high-precision measurements of the standard model electroweak interaction, including properties of the Higgs Boson, as well as searches for new physics beyond the standard model. The new requirements in terms of rate and latency exceed the present capabilities of the front-end and back-end electronics forcing the entire replacement of the CMS main parts including the trigger system.
+    
+    The HL-LHC, will start operating after the third Long Shutdown (LS3), and is designed to provide an increased instantaneous luminosity, at the price of extreme pileup of interactions. In LS3, the CMS detector will also undergo a major upgrade to prepare for the so called Phase-2 of the LHC physics program, starting in the second half of 2027.
+    
+    Aim of the proposed thesis is to contribute to the development of a new Level-1 (L1) trigger for the CMS Experiment, in particular on the new Global Trigger (GT) subsystem. The CMS L1 trigger performs the first step of event reduction, based on physics selections. The L1 hardware consists of custom programmable electronics working at local, regional and global scale. Within L1, the Global Trigger (GT, top entity of the hierarchy) is responsible for selecting events to be processed by the following software trigger stage.  
+    
+    The GT decision is presently based on calculations of physics parameters applied to candidate particles and global parameters. Such algorithms range from setting thresholds on transverse (p, E) on single objects to more complex calculations based on multiplicities and topological conditions.  
+    
+    The new GT shall consist of multiple processors, each receiving the full set of trigger objects, but calculating different set of algorithms, namely the \textit{trigger menu}. The use of advanced object identification algorithms, including machine learning and multivariate analysis techniques, will facilitate greater use of object classification variables in the GT. 
+    
+    The thesis work will be sub-divided in two main branches.
+    
+    Firstly a new types of algorithms will be studied in the HL-LHC setup, namely the neural networks based algorithms; to do so, the powerful \textit{hls4ml} tool will be employed to perform the translation from high level programming code (Python and Keras) to \textit{High Level Synthesis} (HLS), finally this code will be employed to produce a bit-file to be loaded on \textit{Field Programmable Gate Arrays} (FPGAs). The algorithms produced will be firstly simulated in software, then tested in a fast way on PYNQ accelerator card and finally implemented in the processor board and the results compared to the expected values.
+    
+    Then the Final-OR (finor) board firmware will be developed, this board has the aim to monitor and eventually pre-scale the incoming 1000 different algorithms, then merging them and produce up to 8 different trigger types. These trigger types are chosen according to the physics program needed.  
+    The code currently implemented in the present Global Trigger board, developed by the Vienna CMS group, will be revisited and modified to match the updated features of the Phase-2 upgrade. Firstly the firmware must be revisited, since in the Final-OR logic will be deployed in an upgraded version of the current used FPGA (Virtex-7 $\to$ Virtex-Ultrascale$+$). 
+    Secondly, new feature will be added to meet the new requirements of the Phase-2 upgrade in therms of increased trigger rate, number of algorithms and input data throughput. 
+    
+    %Lastly the interface to the Timing and Control Distribution System (TCDS-2) must be developed and implemented in the finor board to distribute the trigger signals (multiple trigger Physics) to the detector readout electronics.
+    
+
+\end{document}

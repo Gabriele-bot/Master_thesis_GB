@@ -1,0 +1,114 @@
+\documentclass[a4paper,11pt]{book}
+
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[pdftex]{graphicx} %per poter inserire le figure
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{xspace}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+\usepackage{subfigure}
+\usepackage[small]{caption}
+\usepackage{eucal}
+\usepackage{eso-pic}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{afterpage}
+\usepackage{parskip}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{cite}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}   %per riuscire a scrivere gli accenti
+%\usepackage[italian]{babel}   %per riuscire a scrivere gli accenti
+\usepackage[english]{babel}
+\usepackage{setspace}
+\usepackage{tablefootnote}
+\pagestyle{fancy} 
+
+\usepackage[acronym]{glossaries}
+
+\usepackage{wrapfig}
+\usepackage{subfiles}
+\usepackage{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,fit,backgrounds,intersections}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+
+\usepackage{minted}
+
+
+\usepackage{subfiles}
+
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\definecolor{goldmetallic}{rgb}{0.83, 0.69, 0.22}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}  %#5D8AA8
+\definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}         %#0047AB
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}      %#002E63
+\definecolor{dartmouthgreen}{rgb}{0.05, 0.5, 0.06} %#00693E
+\definecolor{mydmg}{rgb}{0.05, 0.5, 0.06}          %#00693E
+\definecolor{lava}{rgb}{0.81, 0.06, 0.13}          %#CF1020
+\definecolor{myred}{rgb}{0.81, 0.06, 0.13}         %#CF1020
+
+\makeglossaries
+
+\loadglsentries{glossary/glossary}
+
+
+\begin{document}
+    
+    
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % TITLEPAGE and INDEX
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \frontmatter
+    \input{titlepage/titlepage.tex}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \renewcommand{\baselinestretch}{1.2} 
+    \tableofcontents
+    
+    \renewcommand{\baselinestretch}{1.5} 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % REPORT CONTENT (SECTIONS)
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subfile{sections/abstract/abstract.tex}
+    \clearpage
+    \mainmatter
+    \subfile{sections/01/01.tex}
+    \clearpage
+    \subfile{sections/02/02.tex}
+    \clearpage
+    \subfile{sections/03/03.tex}
+    \clearpage
+    \subfile{sections/04/04.tex}
+    \clearpage
+    \subfile{sections/05/05.tex}
+    \clearpage
+    \subfile{sections/06/06.tex}
+    \clearpage
+    \subfile{sections/Conclusions/Conclusions.tex}
+    \clearpage
+    %
+    \let\cleardoublepage\clearpage
+    \subfile{Chapters/appendix}
+    \backmatter
+    
+\subfile{bibliography/bibliography.tex}
+
+
+\printglossary[type=\acronymtype,nonumberlist]
+
+
+    
+
+
+
+\end{document}
+
+%TODO Appendix
+%TODO Results
+%TODO overall check

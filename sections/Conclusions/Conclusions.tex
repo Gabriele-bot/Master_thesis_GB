@@ -1,0 +1,34 @@
+\providecommand{\main}{../../main}
+\documentclass[../../main.tex]{subfiles}
+
+
+\begin{document}
+
+\chapter{Conclusion and future developments}
+\label{sec:Conclusion}
+In this thesis it was shown the implementation of new algorithms foreseen for the Level-1 Trigger Phase-2 upgrade, namely the neural network based conditions. Firstly, the required steps were studied to integrate such novel algorithm in the current Phase-2 global trigger framework. Secondly the last component of the global trigger chain, the final OR board, is explained with a particular focus on its firmware development.  
+
+In section \ref{sec:Gt-algo-board} an overview of the Global Trigger algorithm board is given highlighting its intrinsic complexity due to the requested scalability.  
+In section \ref{sec:P2GT_NN} the target neural network model is explained in depth, afterwords the optimization steps were described in detail to reach the resource reduction for the hardware deployment. 
+
+Firstly the model hyper-parameter have to be quantized, this is done thanks to the \textit{qkeras} and \texit{hls4ml} packages, secondly the redundant connections between nodes have been pruned to lightening the target model and finally the its translation into hardware language can take place. During each step multiple tests took place to monitor any potential performance degradation.
+
+Hardware interface between the GT framework and the neural network model is then developed where multiple modules have to be instantiated to re-scale and convert to a common binary data type the input distributions.
+
+The complete module is then tested within the GT framework, time multiplexed data type were used and little to no performance degradation was seen, as it is shown in section \ref{sec:P2GT_Res}. The complete integration was proven successful with many different neural network architectures. The latency was kept well under the requirement set by the global trigger at under 30$ns$ while its resource footprint was kept at minimum levels thanks to the optimizations introduced.
+
+Two different target frequencies were considered: 480$MHz$ (same as the global trigger logic) and 240$MHz$. Advantages and drawbacks of each option were studied and 240$MHz$ was chosen as target frequency due to small increased in logic complexity but lower flip flop usage and simpler routability without sacrifice the latency.  
+
+The next important achievement would be the integration of hls4ml on the CMS online software (CMSSW), in this way the neural network module can be developed and integrated within the CMS software stack without going through the technical steps of firmware development. An other important milestone will be the emulation of such block in CMSSW allowing rapid test and fast development of new algorithms. 
+
+
+The final OR board firmware was developed and then tested, the design took inspiration from the $\mu$GT  running during the Run 3, it was optimized and adapted to meet the new requirement of the Phase-2 L1T upgrade. The main blocks have been improved were possible to meet the increased number of running algorithms and the increased data throughput.  
+
+New tests were developed to evaluate the goodness of the produced design in multiple hardware configuration, from standalone to multi-board tests. A small trigger menu was introduced to test the measured rate against the expected ones. The board pass every tests with various configurations and data inputs
+
+Next step before the installation of the mentioned board is the implementation of the missing blocks described in the Phase-2 TDR\cite{L1T-2up}, namely the external conditions trigger, the connection to the DAQ boards and the output for the HLT subsystems.
+
+
+    
+
+\end{document}

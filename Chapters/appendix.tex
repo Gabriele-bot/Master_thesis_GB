@@ -1,0 +1,45 @@
+\providecommand{\main}{../../main}
+\documentclass[../main.tex]{subfiles}
+
+\let\cleardoublepage\clearpage
+
+\begin{document}
+\appendix
+
+\chapter{Models}
+\label{sec:App_Code}
+    
+\chapter{Design Implementation}
+\label{sec:App_Desgin}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c|c|c}
+        GT-board & FPGA & LUT [\%] & FF [\%] & DSP [\%] & BRAM [\%] & URAM [\%] & Synth [h] & Impl [h] \\
+        \hline
+        GT-Algo   & VU9P  & 1 & 1 & 1 & 1 & 1 & 1 & 1  \\
+        GT-Algo   & VU13P & 1 & 1 & 1 & 1 & 1 & 1 & 1  \\
+        GT-Finor  & VU9P  & 1 & 1 & 1 & 1 & 1 & 1 & 1  \\
+        GF-Finor  & VU13P & 1 & 1 & 1 & 1 & 1 & 1 & 1  \\
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:Design-impl}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c}
+        \multirow{2}{*}{GT-board} & \multicolumn{2}{c}{Directives} \\
+        & Synth & Impl \\
+        \hline
+        \multirow{2}{*}{GT-Algo}    & flatten\_hierarchy none &  ExtraTiningOpt \\
+           &  &   \\
+        \multirow{2}{*}{GT-Finor}  & flatten\_hierarchy=none & AltSpreadLogic\_medium  \\
+           &  AlternateRoutability & AlternateCLBRoutability \\
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:Design-directivesl}
+\end{table}
+    
+
+\end{document}
