@@ -13,7 +13,7 @@ Searching for exotic particles never observed before implies a need for an enorm
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{sections/01/Images/Cern_acc_complex.png}
+    \includegraphics[width=0.9\textwidth]{sections/01/Images/Cern_acc_complex.png}
     \caption{CERN accelerator complex, image taken from \cite{LHC-Acc}.}
     \label{fig:CERN_ACC}
 \end{figure}  
@@ -36,7 +36,7 @@ A brief introduction of the main collision points in given below.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.85\textwidth]{sections/02/Images/cms_160312_02.png}
+    \includegraphics[width=0.9\textwidth]{sections/02/Images/cms_160312_02.png}
     \caption{The CMS detector is shaped like a cylindrical onion, with several concentric layers of components. Taken from Ref. \cite{CMS}.}
     \label{fig:CMS_det}
 \end{figure}
@@ -121,7 +121,7 @@ Phase-1 of the CMS experiment is introduced, then the Phase-2 upgrade of the sys
     \label{fig:L1T_diagram}
 \end{figure}
 
-Every bunch crossing signals are collected by the detector, these data are digitised and stored on front-end pipelines. A subset is processed to produce \acrfull{tps}. TPs are used to build a coarse granularity version of the event that requires less bandwidth and can be sent every bunch crossing to the level-1 trigger. Within a
+For each bunch crossing, signals are collected by the detector, these data are digitised and stored on front-end pipelines. A subset is processed to produce \acrfull{tps}. TPs are used to build a coarse granularity version of the event that requires less bandwidth and can be sent every bunch crossing to the level-1 trigger. Within a
 few $\mu s$ the L1T analyses the TPs within the electronic boards, and issues an accept or reject signal (Level-1 accept, L1A) to the front end buffers. The decision on whether to accept or reject an event is based on a \texit{trigger menu}, i.e. a set of algorithms that define the criteria for which an event is considered interesting.  
 
 An accept signal causes the front end buffer to send the full-event data to the event builder network. The event builder network collects data from all the detector data sources and combines them together to form a single event entity that is sent to the CMS computing services. Here, a \acrfull{hlt} runs offline reconstruction algorithms on a computing cluster. A set of
@@ -138,7 +138,7 @@ Run-2 \cite{L1T-1up}. The system consists of around 100 hardware boards that pro
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.67\textwidth]{sections/02/Images/Phase-1_l1t.pdf}
+    \includegraphics[width=0.77\textwidth]{sections/02/Images/Phase-1_l1t.pdf}
     \caption{Diagram of the Phase-1 L1T upgrade. Taken from Ref. \cite{L1T-1up}}
     \label{fig:Phase-1_L1T}
 \end{figure}
@@ -168,7 +168,7 @@ The Global Trigger (GT) runs a set of selection requirements (algorithms in the 
 \subsubsection{Global trigger}
 \label{Phase-1_l1T_arch}
 
-The Phase-1 upgrade global trigger ($\mu$GT in the following) was necessary due to limitations in the previous Level-1 Trigger and the GT in particular, critical parts are the processing capabilities of the FPGAs and \acrshort{asic}s, as well as the bandwidth constraints in the connections between VME cards. The extensive use of cables causes additional problems, contributing to errors through faults in loose connectors and making maintenance more complicated. The GT upgrade will be designed to be largely independent of a specific hardware solution by using a flexible approach based on existing commercial off-the-shelf components wherever possible. From this point of view, it is simpler to use one common card type for the whole of the Global Trigger to keep maintenance as effortless as possible.
+The Phase-1 upgrade global trigger ($\mu$GT in the following) was necessary due to limitations in the previous Level-1 Trigger and the GT in particular, critical parts are the processing capabilities of the FPGAs and \acrshort{asic}s, as well as the bandwidth constraints in the connections between VME cards. The extensive use of cables causes additional problems, contributing to errors through faults in loose connectors and making maintenance more complicated. The GT upgrade has been designed to be largely independent of a specific hardware solution by using a flexible approach based on existing commercial off-the-shelf components wherever possible. From this point of view, it is simpler to use one common card type for the whole of the Global Trigger to keep maintenance as effortless as possible.
 
 \begin{figure}[h]
     \centering
@@ -177,7 +177,7 @@ The Phase-1 upgrade global trigger ($\mu$GT in the following) was necessary due 
     \label{fig:uGT-firmware}
 \end{figure}
 
-The whole $\mu$GT system consists in 6 MP7 boards -shown in Fig. \ref{fig:Phase-1_MP7}- equipped with the Virtex-7 FPGA part. Each block is clocked to the LHC frequency, both the algorithm logic and the final decision logic are placed in the same FPGA. The system can run simultaneously up to 512 algorithms distributed on the board pool, the final decision bit is then computed externally combining the output bits from the MP7 boards. The board is build following the \acrshort{utca} standard, hence the name $\mu$GT.
+The whole $\mu$GT system consists in 6 MP7 boards -shown in Fig. \ref{fig:Phase-1_MP7}- equipped with the Virtex-7 FPGA part. Each block is clocked to the LHC frequency, both the algorithm logic and the final decision logic are placed in the same FPGA. The system can run simultaneously up to 512 algorithms distributed on the board pool, the final decision bit is then computed externally combining the output bits from the MP7 boards. The board is built following the \acrshort{utca} standard, hence the name $\mu$GT.
 
 \begin{figure}[h]
     \centering
@@ -217,31 +217,31 @@ The redundancy enables the L1T to be more robust in case of issues. Having track
 \subsubsection{Phase-2 Global trigger}
 \label{Phase-2_GT}
 
-The Global Trigger (GT in the following) system is responsible for implementing the so-called trigger menu, i.e. the parallel evaluation of ~1000 trigger algorithms that selecting a specific event signature. It needs to receive inputs from all upstream trigger systems, buffer data to compensate for different arrival times, de-multiplex data and provide them to the global trigger algorithms, which are all evaluated in parallel. The GT system further provides functionality to pre-scale algorithms and to monitor their rate, both before and after taking into account dead time. Finally, the GT system computes the trigger type based on the trigger algorithms that fired and sends it to the \acrfull{tcds2} \cite{TCDS2}.  
+The Global Trigger (GT in the following) system is responsible for implementing the so-called trigger menu, i.e. the parallel evaluation of $\sim$1000 trigger algorithms that select a specific event signature. It needs to receive inputs from all upstream trigger systems, buffer data to compensate for different arrival times, de-multiplex data and provide them to the global trigger algorithms, which are all evaluated in parallel. The GT system further provides functionality to pre-scale algorithms and to monitor their rate, both before and after taking into account dead time. Finally, the GT system computes the trigger type based on the trigger algorithms that fired and sends it to the \acrfull{tcds2} \cite{TCDS2}.  
 
 As in Phase-1, the trigger menu is expected to evolve continuously to adapt to the operating conditions provided by the LHC and to new insights gained. The experience from Run-1 and Run-2 shows that more and more complex algorithms tend to be added over time, which are tailored to very specific physics channels. As these algorithms tend to use a lot of resources, the Global Trigger system needs to be scalable. In general, it is desirable that in order to update the trigger menu, only the Global Trigger system needs to be updated, i.e. that all cuts defined in the menu are applied in the Global Trigger.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.87\textwidth]{sections/02/Images/Serenity1v5_combined.png}
+    \includegraphics[width=0.89\textwidth]{sections/02/Images/Serenity1v5_combined.png}
     \caption{Top and bottom view of the Serenity board.}
     \label{fig:Phase-2_Serenity}
 \end{figure}
 
-It is likely that the firmware of the Global Trigger will need to be regenerated when the menu changes - at least for major changes of the menu (as is the case for the Phase-1 Global Trigger). The software infrastructure to automatically create new firmware based on a description of the menu will be an important deliverable of the Global Trigger project. The firmware is developed to keep frozen the common modules, such as the transceiver and the channel de-multiplexer, and only the algorithm sub-modules will be subjected to the re-generation. From a given new trigger menu each algorithm will receive a score based on which input it needs and an estimate of its resource requirements, then to tool will try to balance the sum of such score over the SLRs with in the same board and over the board pool.  
+It is likely that the firmware of the Global Trigger will need to be regenerated when the menu changes - at least for major changes of the menu (as is the case for the Phase-1 Global Trigger). The software infrastructure to automatically create new firmware based on a description of the menu will be an important deliverable of the Global Trigger project. The firmware is developed to keep frozen the common modules, such as the transceiver and the channel de-multiplexer, and only the algorithm sub-modules will be subjected to the re-generation. From a given new trigger menu, each algorithm will receive a score based on which input it needs and an estimate of its resource requirements, then the tool will try to balance the sum of such score over the SLRs with in the same board and over the board pool.  
 
-The target board of such project is the Serenity shown in FIg. \ref{fig:Phase-2_Serenity}, it is built following the \acrshort{atca} (advanced TCA) standard and it can host up to two daughter cards each of them hosting an Ultracale+ FPGA. On top of that it  also houses a CPU for the communications and a third FPGA (Artix based) to distribute the clock and the controls from the backplane. 
+The target board of such project is the Serenity\cite{Serenity} shown in FIg. \ref{fig:Phase-2_Serenity}, it is built following the \acrshort{atca} (advanced TCA) standard and it can host up to two daughter cards each of them hosting an Ultracale+ FPGA. On top of that it  also houses a CPU for the communications and a third FPGA (Artix based) to distribute the clock and the controls from the backplane. 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.77\textwidth]{sections/02/Images/GT_TDR.pdf}
+    \includegraphics[width=0.81\textwidth]{sections/02/Images/GT_TDR.pdf}
     \caption{Architecture of the Phase-2 Global Trigger system.}
     \label{fig:GT-TDR}
 \end{figure}
 
-The layout of the complete global trigger subsystem is highlighetd in Fig. \ref{fig:GT-TDR}, each algorithm board receives a copy of the same inputs. The number on the top right of the upstream systems indicates the assumed time multiplexing factor of the upstream system. However, other time multiplexing factors can be employed in these systems, as long as the total number of links does not change. Both time axes show the worst-case latency of the GT system, that would be needed, if the upstream system(s) on the critical path had a time-multiplexing factor of 18.
+The layout of the complete Global Trigger subsystem is highlighetd in Fig. \ref{fig:GT-TDR}: each algorithm board receives a copy of the same inputs. The number on the top right of the upstream systems indicates the assumed time multiplexing factor of the upstream system. However, other time multiplexing factors can be employed in these systems, as long as the total number of links does not change. Both time axes show the worst-case latency of the GT system, that would be needed, if the upstream system(s) on the critical path had a time-multiplexing factor of 18.
 
-The total latency of the global trigger system including three optical links (up to TCDS) and deserialization is illustrated in Table \ref{tab:GT-lat}. For input links from upstream systems and the output link to TCDS, in each instance half of the latency of the link is attributed to the GT. The full latency of time de-multiplexing data is attributed to the GT. This brings the total latency of the GT to 1 µs, if the upstream system on the critical path used the highest supported time multiplexing factor of 18.
+The total latency of the Global Trigger including three optical links (up to TCDS) and deserialization is illustrated in Table \ref{tab:GT-lat}. For input links from upstream systems and the output link to TCDS, in each instance half of the latency of the link is attributed to the GT. The full latency of time de-multiplexing data is attributed to the GT. This brings the total latency of the GT to 1 µs, if the upstream system on the critical path used the highest supported time multiplexing factor of 18.
 
 \begin{table}[h]
     \centering
@@ -254,7 +254,7 @@ The total latency of the global trigger system including three optical links (up
          Input Link   & 2.5 & 62.5 \\
          Deserializer & $nTMUX$ & $25\times nTMUX$ \\
          Algorithms   & 10 & 250 \\
-         Link to Final-OR & 2.5 & 62.5 \\
+         Link to Final-OR & 5 & 125 \\
          Final-OR & 2 & 50 \\
          Link to TCDS-2 & 2.5 & 62.5 \\
          \hline
@@ -268,10 +268,11 @@ The total latency of the global trigger system including three optical links (up
 The baseline for the output to TCDS is a single 10 Gb/s optical fiber transmitting the trigger decision for each bunch crossing. The trigger decision will be encoded as a field of bits, each bit denoting a trigger type. TCDS passes the field of trigger bits on to the sub-detectors. The actual list of trigger types and their meaning or each detector remains to be defined.  
 The interface to TCDS also foresees a reverse link that is reserved for future use, such as communicating the dead time or the warning state back, to be used in the trigger throttling.
 
+\clearpage
 \subsection{Phase-1 and Phase-2 trigger upgrades}
 \label{L1T_summary}
 
-In 2029 during the long shutdown 3, the CMS experiment will be upgraded to retain its physics sensitivity despite the larger background. The level-1 trigger will be completely replaced by a new system equipped with large FPGAs and high-speed optical links running up to 25 Gb/s. The system will receive fine granularity inputs from the calorimeters, and tracks from the tracker and muon chambers. The correlator trigger will be introduced, it is a new \acrshort{l1t} subsystem that will run particle flow algorithms to identify single particles in an event and powerful pile-up subtraction techniques to reject those not produced in the hard interaction vertex.  
+In 2027,2028,2029 during the long shutdown 3, the CMS experiment will be upgraded to retain its physics sensitivity despite the larger background. The level-1 trigger will be completely replaced by a new system equipped with large FPGAs and high-speed optical links running up to 25 Gb/s. The system will receive fine granularity inputs from the calorimeters, and tracks from the tracker and muon chambers. The correlator trigger will be introduced, it is a new \acrshort{l1t} subsystem that will run particle flow algorithms to identify single particles in an event and powerful pile-up subtraction techniques to reject those not produced in the hard interaction vertex.  
 
 A brief table summarizing the main upgrades from Phase-1 to Phase-2 trigger system is shown in \ref{tab:L1T_summary}.
 
@@ -298,7 +299,7 @@ A brief table summarizing the main upgrades from Phase-1 to Phase-2 trigger syst
         
         \hline
     \end{tabular}
-    \caption{Summary of the main differences of the two upgrades}
+    \caption{Summary of the main differences between the two upgrades}
     \label{tab:L1T_summary}
 \end{table}
 

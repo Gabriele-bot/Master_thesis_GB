@@ -1,0 +1,57 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[compat=1.1.8]{tikz-feynman}
+\usepackage{amsmath}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.pathreplacing}
+
+
+
+
+
+%% particles
+\newcommand{\PZ}{\ensuremath{\text{Z}}}
+\newcommand{\PH}{\ensuremath{\text{H}}}
+\newcommand{\PW}{\ensuremath{\text{W}}}
+\newcommand{\PWp}{\ensuremath{\text{W}^{+}}}
+\newcommand{\PWm}{\ensuremath{\text{W}^{-}}}
+\newcommand{\PWpm}{\ensuremath{\text{W}^{\pm}}}
+\newcommand{\PJPsi}{\ensuremath{\text{J}/\Psi}}
+\newcommand{\PPsiPrime}{\ensuremath{\Psi^{\prime}}}
+\newcommand{\PPsiS}{\ensuremath{\Psi(\text{1S})}}
+\newcommand{\PPsiSS}{\ensuremath{\Psi(\text{2S})}}
+\newcommand{\PPsiNS}{\ensuremath{\Psi(\text{nS})}}
+
+
+
+
+
+\begin{document}
+\begin{tikzpicture}
+      \begin{feynman}
+        \vertex (a) at (0,0) {\(H\)};
+        \vertex [] at (1.5,0) (b);
+        \vertex [] at (2.5,1.5) (h1);
+        \vertex [] at (2.5,-1.5) (h2);
+        \vertex [] at (5,2) (b1) {\(b\)};
+        \vertex [] at (5,1) (b2) {\(b\)});
+        \vertex [] at (4,-0.5) (w1);
+        \vertex [] at (4,-2.5) (w2);
+        \vertex [] at (5,-0) (l1) {\(l\)};
+        \vertex [] at (5,-1) (v1) {\(\nu\)};
+        \vertex [] at (5,-2) (q1) {\(q\)};
+        \vertex [] at (5,-3) (q2) {\(q\)};
+    
+        \diagram* {
+          (a) -- [scalar] (b) -- [scalar , edge label=\(H\)] (h1),
+          (b) -- [scalar, edge label'=\(H\)] (h2),
+          (h1) -- [] (b1),
+          (h1) -- [] (b2),
+          (h2) -- [boson, edge label=\(W\)] (w1),
+          (h2) -- [boson, edge label'=\(W\)] (w2),
+          (w1) -- [] (l1),
+          (w1) -- [] (v1),
+          (w2) -- [] (q1),
+          (w2) -- [] (q2)
+        };
+      \end{feynman}
+\end{tikzpicture}
+\end{document}
